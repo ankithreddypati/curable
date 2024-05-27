@@ -1,0 +1,61 @@
+.display-container {
+    display: flex;
+    height: 100vh;
+    position: relative; 
+}
+
+.left-content {
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto;
+    height: 100vh;
+}
+
+.logout-button {
+    position: absolute;
+    width: 120px;
+    right: 20px;
+    top: 20px;
+    padding: 10px 20px;
+    background-color: #EA4335; 
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 10;
+    
+}
+
+.logout-button:hover {
+    background-color: #357ABD;
+}
+
+h1 {
+    margin: 20px 0;
+    color: #4285F4;
+    font-size: 50px;
+}
+
+df-messenger {
+    width: 100vh;
+    height: 90vh;
+    z-index: 100; 
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    --df-messenger-font-color: #000;
+    --df-messenger-font-family: 'Google Sans';
+    --df-messenger-chat-background: #f3f6fc;
+    --df-messenger-message-user-background: #d3e3fd;
+    --df-messenger-message-bot-background: #fff;
+}
+
+.calendar-container {
+    padding: 20px;
+    width: 850px; 
+    height: 250px;
+}
+
+.fc-header-toolbar { 
+    color: #357ABD; 
+}
