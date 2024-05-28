@@ -1,22 +1,175 @@
-.background-image {
-    background-image: url('background.png'); /* Make sure the path to the image is correct */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+
+.container {
     display: flex;
     align-items: center;
-    justify-content: center;
-    height: 100vh; /* Full height */
+    justify-content: center; 
+    min-height: 100vh;
+    padding: 20px;
+    flex-wrap: nowrap; 
+    gap: 20px; 
 }
 
-.login-card {
-    background-color: rgba(255, 255, 255, 0.9);
+.login-card, .picture-card {
+    flex: 0 0 250px; 
+    height: 420px;
+    background-color: #f3f6fc;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
-    width: 300px;
+    overflow: hidden;
 }
+
+.cimage {
+    width: 60px;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+.capsulepill1{
+    width: 50px;
+    transform: rotate(30deg) translateX(-10px) translateY(50px); 
+}
+
+.handxray{
+    width: 560px;
+    transform:scaleX(-1) rotate(16deg) translateX(45px) translateY(-8px); 
+}
+
+.handxray1{
+    width: 560px;
+    transform:scaleX(-1)  rotate(18deg) translateX(380px) translateY(20px); 
+}
+
+.oats1{
+    width: 260px; 
+    transform: translateX(70px) translateY(5px); 
+}
+
+.oats2{
+    width: 260px; 
+    transform: translateX(-245px) translateY(5px); 
+}
+
+.rasp1{
+    width: 40px;
+    transform: rotate(102deg) ; 
+}
+
+.rasp2{
+    width:45px;
+    transform: rotate(-102deg) translateX(225px) translateY(-90px);
+
+}
+
+.rasp3{
+    width:45px;
+    transform: rotate(-102deg) translateX(38px) translateY(170px);
+
+}
+
+.blue1{
+    width:35px;
+    transform: rotate(-102deg) translateX(138px) translateY(-120px);
+
+}
+
+
+.blue2{
+    width:30px;
+    transform: rotate(-10deg) translateX(-10px) translateY(-265px);
+    filter: blur(0.5px); 
+}
+
+.blue3{
+    width:30px;
+    transform: rotate(10deg) translateX(60px) translateY(35px);
+    filter: blur(0.7px); 
+}
+
+.testtube{
+    width: 250px;
+    transform: rotate(16deg) translateX(80px) translateY(-40px);
+    
+}
+
+
+.medicationinfo{
+    transform: translateX(00px) translateY(125px); 
+    padding: 2px;
+    font-weight: 500;
+}
+
+.reportinfo{
+    transform: translateX(00px) translateY(-47px);
+    font-weight: 500; 
+    padding: 2px;
+}
+
+.mealinfo{
+    transform: translateX(00px) translateY(77px); 
+    font-weight: 500;
+    padding: 2px;
+}
+
+
+.icon{
+    top:20px;
+    position: absolute;
+    font-weight: 600;
+    font-size: 50px;
+    /* left:20px; */
+    /* color: #4285F4; */
+}
+
+.giticon {
+    width: 38px;
+    position: absolute;
+    top:20px;
+    right:20px;
+}
+
+.socialicons {
+    width: 40px;
+    position: absolute;
+    top:20px;
+    right:80px;
+
+}
+
+.intro {
+    width: 800px;
+    height: 220px; 
+    background-color: white;
+    color: black;
+    font-size: larger;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.intdiv1 {
+    font-size: 30px;
+    font-weight: 700;
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    height: 40px;
+}
+
+.intdiv2 {
+    font-size: 40px;
+    color: #4285F4;
+    font-weight: 600;
+    margin: 10px;
+    transform: translateX(0px) translateY(-225px); 
+
+}
+
+.form {
+    transform: translateX(0px) translateY(-210px); 
+}
+
 
 input[type="text"], input[type="password"] {
     width: 100%;
