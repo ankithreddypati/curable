@@ -7,6 +7,7 @@ backend/__pycache__/
 
 # Build folder for React client
 client/build/
+client/.env
 
 # Logs and databases if any
 *.log

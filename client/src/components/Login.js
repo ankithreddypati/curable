@@ -49,7 +49,7 @@ const Login = () => {
 
 
             {/* <div className='intro'>
-                <div className='intdiv1'>Built for Google Cloud Vertex Agent Builder Hackathon</div>
+                
                 
                 <div className='intdiv3'> Our AI Agent and Simplify Your Healthcare Routine.</div>
             </div> */}
@@ -90,6 +90,7 @@ const Login = () => {
                     <button type="submit" id="login-button">Login</button>
                 </form>
             </div>
+            <div className='intdiv1'>Built for Google Cloud Vertex Agent Builder Hackathon</div>
         </div>
     );
 };

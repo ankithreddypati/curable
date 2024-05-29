@@ -1,14 +1,14 @@
-.display-container {
+/* .display-container {
     display: flex;
     height: 100vh;
     position: relative; 
-}
+} */
 
-.left-content {
+/* .left-content {
     flex-grow: 1;
     padding: 20px;
     height: 100vh;
-}
+} */
 
 .logout-button {
     position: absolute;
@@ -32,8 +32,8 @@
 h1 {
     margin: 10px 0;
     color: #4285F4;
-    font-size: 42px;
-    font-weight: 800;
+    font-weight: 600;
+    font-size: 50px;
 }
 
 df-messenger {
@@ -49,24 +49,6 @@ df-messenger {
     --df-messenger-message-bot-background: #fff;
 }
 
-.calendar {
-    margin-top: 20px;
-    padding: 10px;
-    background: #f3f6fc;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    width: 300px;
-}
-
-
-.promptcontainer {
-    margin-top: 20px;
-    padding: 10px;
-    background: #f3f6fc;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    width: 600px;
-}
 
 .calendar-header {
     display: flex;
@@ -82,12 +64,6 @@ df-messenger {
     font-weight: bold;
 }
 
-/* .day {
-    display: inline-block;
-    width: 14%; 
-    text-align: center;
-    padding: 10px 0;
-} */
 
 .event-dot {
     display: inline-block;
@@ -111,7 +87,7 @@ df-messenger {
     display: inline-block;
     width: 14%;
     text-align: center;
-    position: relative; /* Add this if not already present */
+    position: relative; 
     padding-top: 10px;
     padding-bottom: 10px;
 }
@@ -141,7 +117,8 @@ df-messenger {
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     cursor: pointer;
-    width: 400px;
+    width: 300px;
+    height: 420px;
 }
 
 .tiles:hover {
@@ -149,7 +126,49 @@ df-messenger {
 }
 
 .profimage {
-    width: 200px; 
+    width: 300px; 
     height: auto;
     object-fit: cover;
+}
+
+.login-card, .picture-card {
+    flex: 0 0 250px; 
+    height: 420px;
+    background-color: #f3f6fc;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    overflow: auto;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    min-height: 100vh;
+    padding: 20px;
+    flex-wrap: nowrap; 
+    gap: 20px; 
+}
+
+.promptile{
+    background-color: #768484;
+    color: white;
+    height: 25px;
+    border-radius: 5px;
+}
+
+.rec{
+    font-weight: 600;
+    margin: 5px 0px;
+}
+
+.functile{
+    background-color: #768484;
+    color: white;
+    height: 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 15px;
 }
