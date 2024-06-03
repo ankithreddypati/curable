@@ -21,6 +21,13 @@ const Dashboard = () => {
     const [showMedicationDots, setShowMedicationDots] = useState(false);
     const [showAppointmentDots, setShowAppointmentDots] = useState(false);
 
+    const [currentImage, setCurrentImage] = useState(design);
+
+    const handleImageClick = () => {
+        setCurrentImage(currentImage === design ? gcp : design);
+    };
+
+
     const isLeapYear = (year) => {
         return (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0);
     };
@@ -189,21 +196,20 @@ const Dashboard = () => {
                     
                 </div>
                  
-        
-                <div className='card4'>
-                <img src={design} alt="Example Image" className='drawio'/>
-
-                </div>
+                {/* <div className='cardpho'></div> */}
+                <div className='card4' onClick={handleImageClick}>
+                <img src={currentImage} alt="Example Image" className='drawio'/>
+            </div>
 
                 
 
                 </div>
-            <div className='container2'>
+            {/* <div className='container2'>
             <div className='card4'>
                 <img src={gcp} alt="Example Image" className='drawio'/>
 
                 </div>
-            </div>
+            </div> */}
                 
             </div>
             

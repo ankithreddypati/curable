@@ -182,9 +182,25 @@ df-messenger {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
     overflow: auto;
-    transform: translateY(-80px);
+    transform: translateY(40px);
 
 }
+
+.cardpho{
+    flex: 0 0 250px; 
+    height: 270px;
+    background-color: #f3f6fc;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    overflow: auto;
+    transform: translateY(-70px);
+
+}
+
+
+
 .card3:hover{
     background-color: #9bbdf3;
 }
@@ -201,6 +217,8 @@ df-messenger {
     transform: translateY(40px);
 
 }
+
+
 .card4:hover{
     background-color: #9bbdf3;
 }
@@ -218,6 +236,8 @@ df-messenger {
     gap: 20px; 
     /* transform: translateY(-20px); */
 }
+
+
 
 .container2 {
     display: flex;
