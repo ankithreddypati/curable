@@ -1,0 +1,10 @@
+{
+  "name": "da1221dc-0935-4d18-b849-65d373213bb8",
+  "displayName": "Medication updater",
+  "description": "helps user to retrieve medication for today and update the medication as completed",
+  "openApiSpec": {
+  
+  },
+  "schemas": [ "Medication" ],
+  "toolType": "CUSTOMIZED_TOOL"
+}

@@ -1,0 +1,84 @@
+openapi: 3.0.2
+info:
+  title: "Meal Logger Function"
+  description: "A Cloud Function to log meal details with nutritional information and a timestamp."
+  version: "1.0.0"
+servers:
+  - url: "you cloud function url"
+
+paths:
+  /submit_meal:
+    post:
+      summary: "Logs meal details with nutritional information"
+      operationId: "submitMeal"
+      requestBody:
+        description: "Meal details submitted by a user."
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MealData'
+      responses:
+        "200":
+          description: "Meal logged successfully."
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  meal_id:
+                    type: string
+                    description: "The unique identifier for the logged meal."
+        "400":
+          description: "Bad request due to malformed input or missing data."
+        "500":
+          description: "Internal server error when attempting to log the meal."
+  
+  /total_calories:
+    get:
+      summary: "Retrieves total calories consumed today"
+      operationId: "getTodayCalories"
+      responses:
+        "200":
+          description: "Total calories retrieved successfully."
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  total_calories:
+                    type: integer
+                    description: "Total amount of calories consumed today."
+        "500":
+          description: "Internal server error when attempting to retrieve calories."
+
+components:
+  schemas:
+    MealData:
+      required:
+        - meal_name
+        - quantity
+        - calories
+        - carbs
+        - protein
+        - fat
+      type: object
+      properties:
+        meal_name:
+          type: string
+          description: "The name of the meal."
+        quantity:
+          type: integer
+          description: "The quantity of the meal."
+        calories:
+          type: integer
+          description: "Calories in the meal."
+        carbs:
+          type: integer
+          description: "Carbohydrates in the meal."
+        protein:
+          type: integer
+          description: "Protein in the meal."
+        fat:
+          type: integer
+          description: "Fat in the meal."

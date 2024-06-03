@@ -1,31 +1,48 @@
 from flask import Flask, request, jsonify
-from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
+import pyrebase
+import os
+from dotenv import load_dotenv
 
+# Load environment variables
+load_dotenv()
+
+# Initialize Flask application
 app = Flask(__name__)
 CORS(app)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:newone@localhost/curable'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['SQLALCHEMY_POOL_SIZE'] = 10
-app.config['SQLALCHEMY_MAX_OVERFLOW'] = 5
 
-db = SQLAlchemy(app)
+# Firebase configuration from environment variables
+config = {
+    'apiKey': os.getenv('API_KEY'),
+    'authDomain': os.getenv('AUTH_DOMAIN'),
+    'projectId': os.getenv('PROJECT_ID'),
+    'storageBucket': os.getenv('STORAGE_BUCKET'),
+    'messagingSenderId': os.getenv('MESSAGING_SENDER_ID'),
+    'appId': os.getenv('APP_ID'),
+    'measurementId': os.getenv('MEASUREMENT_ID'),
+    'databaseURL': os.getenv('DATABASE_URL')
+}
 
-class User(db.Model):
-    __tablename__ = 'users'
-    id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(80), unique=True, nullable=False)
-    password = db.Column(db.String(80), nullable=False)
+# Initialize Pyrebase with the config
+firebase = pyrebase.initialize_app(config)
+auth = firebase.auth()
+
 
 @app.route('/login', methods=['POST'])
 def login():
     username = request.json['username']
     password = request.json['password']
-    user = User.query.filter_by(username=username, password=password).first()
-    if user:
-        return jsonify({'status': 'success'}), 200
-    else:
-        return jsonify({'status': 'error'}), 401
+    try:
+        user = auth.sign_in_with_email_and_password(username, password)
+        return jsonify({'status': 'success', 'user': user}), 200
+    except Exception as e:
+        return jsonify({'status': 'error', 'error': str(e)}), 401
 
 if __name__ == '__main__':
-    app.run(debug=True, port=6969)
+    port = int(os.getenv('PORT', 5000)) 
+    app.run(debug=True, port=port)
+
+
+
+
+

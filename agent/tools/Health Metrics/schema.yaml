@@ -1,0 +1,63 @@
+openapi: 3.0.0
+info:
+  title: Health Metrics API
+  description: API to retrieve average health metrics data over a specified number of days.
+  version: "1.0"
+servers:
+  - url: "you cloud function url"
+paths:
+  /average_metrics:
+    post:
+      summary: Get average health metrics
+      operationId: getAverageMetrics
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                metric:
+                  type: string
+                  enum:
+                    - calories_burned
+                    - total_sleep_hours
+                    - rem_sleep_hours
+                    - heart_rate
+                    - blood_oxygen_level
+                    - steps_count
+                  description: The metric to retrieve (calories_burned, total_sleep_hours, rem_sleep_hours, heart_rate, blood_oxygen_level, steps_count)
+                days_ago:
+                  type: integer
+                  description: The number of past days to include in the average (default is 7)
+      responses:
+        '200':
+          description: Successful response with average metric data
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  calories_burned:
+                    type: number
+                    example: 350.5
+                  total_sleep_hours:
+                    type: number
+                    example: 7.2
+                  rem_sleep_hours:
+                    type: number
+                    example: 2.1
+                  heart_rate:
+                    type: number
+                    example: 72
+                  blood_oxygen_level:
+                    type: number
+                    example: 96.5
+                  steps_count:
+                    type: number
+                    example: 8000
+        '400':
+          description: Bad request, if the metric parameter is missing or invalid
+        '500':
+          description: Internal server error
+

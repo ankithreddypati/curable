@@ -1,0 +1,82 @@
+openapi: 3.0.2
+info:
+  title: Daily Medication Schedule API
+  description: API to retrieve and update the daily medication schedule.
+  version: "1.0.0"
+
+servers:
+  - url: "you cloud function url"
+
+paths:
+  /medications:
+    get:
+      summary: Retrieve today's medications
+      operationId: getTodayMedications
+      responses:
+        '200':
+          description: Successfully retrieved today's medications.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  medications:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Medication'
+        '500':
+          description: Internal server error
+    patch:
+      summary: Update the completed status of a medication
+      operationId: updateMedicationStatus
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                medication_name:
+                  type: string
+                  description: The name of the medication to update.
+                completed:
+                  type: boolean
+                  description: New status indicating whether the medication has been taken.
+      responses:
+        '200':
+          description: Successfully updated the medication's status.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: string
+        '404':
+          description: Medication not found.
+        '400':
+          description: Invalid request parameters.
+        '500':
+          description: Internal server error
+
+components:
+  schemas:
+    Medication:
+      type: object
+      properties:
+        medication_id:
+          type: string
+          description: The unique identifier of the medication.
+        medication_name:
+          type: string
+          description: Name of the medication.
+        dosage:
+          type: string
+          description: Dosage details of the medication.
+        timestamp:
+          type: string
+          format: date-time
+          description: The date and time the medication is scheduled to be taken.
+        completed:
+          type: boolean
+          description: Indicates if the medication has been taken or not.

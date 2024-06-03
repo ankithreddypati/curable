@@ -1,0 +1,54 @@
+openapi: 3.0.2
+info:
+  title: "Symptom Logger Function"
+  description: "A Cloud Function to log health symptoms with their severity and a timestamp."
+  version: "1.0.0"
+servers:
+  - url: "your cloud function URL"
+
+paths:
+  /log_symptom:
+    post:
+      summary: "Logs a health symptom and its severity"
+      operationId: "logSymptom"
+      requestBody:
+        description: "Symptom details submitted by a user."
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SymptomData'
+      responses:
+        "200":
+          description: "Symptom logged successfully."
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  symptom_id:
+                    type: string
+                    description: "The unique identifier for the logged symptom."
+        "400":
+          description: "Bad request due to malformed input or missing data."
+        "500":
+          description: "Internal server error when attempting to log the symptom."
+
+components:
+  schemas:
+    SymptomData:
+      required:
+        - user_id
+        - symptom_description
+        - severity
+      type: object
+      properties:
+        user_id:
+          type: string
+          description: "The unique identifier of the user logging the symptom."
+        symptom_description:
+          type: string
+          description: "A detailed description of the symptom experienced by the user."
+        severity:
+          type: integer
+          description: "A numerical value representing the severity of the symptom."

@@ -1,0 +1,10 @@
+{
+  "name": "2865e3fa-9bbc-449c-8731-a3233f4554b1",
+  "displayName": "Meal logger",
+  "description": "Creates a log of meal with name, quantity, calories , carbs ,protein and fat",
+  "openApiSpec": {
+  
+  },
+  "schemas": [ "MealData" ],
+  "toolType": "CUSTOMIZED_TOOL"
+}

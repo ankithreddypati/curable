@@ -1,50 +1,60 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAuth } from './AuthContext'; 
+import { initializeApp } from 'firebase/app';
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import './Login.css';
-import git from './github.png'
-import link from './linkedin.png'
-import capsule from './capsulepill.png'
-import hand from './armxray1.png'
-import oats from './oatmeal.png'
-import rasp from './raspberry.png'
-import blue from './blueberry.png'
-import test from './bloodtesttube.png'
+import git from './images/github.png';
+import link from './images/linkedin.png';
+import capsule from './images/capsulepill.png';
+import hand from './images/armxray1.png';
+import oats from './images/oatmeal.png';
+import rasp from './images/raspberry.png';
+import blue from './images/blueberry.png';
+
+import test from './images/bloodtesttube.png';
+
+const firebaseConfig = {
+    apiKey: process.env.REACT_APP_API_KEY,
+    authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+    projectId: process.env.REACT_APP_PROJECT_ID,
+    storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+    messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
+    appId: process.env.REACT_APP_APP_ID
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
 
 const Login = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
-    const { login } = useAuth(); 
 
     const handleLogin = async (event) => {
         event.preventDefault();
         try {
-            const response = await fetch('http://localhost:6969/login', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ username, password })
-            });
-            const data = await response.json();
-            if (response.ok) {
-                login(data); 
-                navigate('/dashboard');
-            } else {
-                alert('Login failed!');
-            }
+            const userCredential = await signInWithEmailAndPassword(auth, username, password);
+            console.log('Logged in user:', userCredential.user);
+            console.log('Navigating to dashboard...');
+            navigate('/dashboard');
+            console.log('Navigation call made');
         } catch (error) {
+            alert('Login failed! ' + error.message);
             console.error('Login error:', error);
         }
     };
+   
 
     return (
         
         <div className='container'>
         <div className='icon'>Curable</div>
-        <img src={git} alt="Example Image" className='giticon'/>
-        <img src={link} alt="Example Image" className='socialicons'/>
+        <a href="https://github.com/ankithreddypati/curable" target="_blank" rel="noopener noreferrer">
+             <img src={git} alt="GitHub Icon" className='giticon'/>
+            </a>
+        <a href="https://www.linkedin.com/in/ankithreddypati" target="_blank" rel="noopener noreferrer">
+            <img src={link} alt="LinkedIn Icon" className='socialicons'/>
+        </a>
 
 
 
@@ -58,7 +68,7 @@ const Login = () => {
             <img src={hand} alt="capsule pill" className='handxray'/> 
             {/* <button className='medicationbutton' type="submit" id="login-button">Manage Medication</button> */}
             <div className='medicationinfo'> Manage Medication schedule</div>
-            <div className='medicationinfo'> Get Health Education</div>
+            <div className='medicationinfo'> Analyse Health Metrics</div>
 
             </div>
             <div className='picture-card'>
@@ -75,8 +85,8 @@ const Login = () => {
             <img src={rasp} alt="oat meal" className='rasp2'/>
             <img src={blue} alt="blue berry" className='blue1'/>
             <img src={blue} alt="blue berry" className='blue3'/>
-            <div className='mealinfo'> Symptom Logging & Many more</div>
-            <div className='mealinfo'> With the help of our AI Agents</div>
+            <div className='mealinfo'> Symptom Logging </div>
+            <div className='mealinfo'> With our AI Agent</div>
             </div>
             <div className="login-card">
             <img src={oats} alt="oat meal" className='oats2'/> 

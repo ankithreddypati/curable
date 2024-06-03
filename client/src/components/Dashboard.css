@@ -1,28 +1,16 @@
-/* .display-container {
-    display: flex;
-    height: 100vh;
-    position: relative; 
-} */
-
-/* .left-content {
-    flex-grow: 1;
-    padding: 20px;
-    height: 100vh;
-} */
 
 .logout-button {
     position: absolute;
     width: 120px;
     right: 20px;
-    top: 20px;
+    top: 0px;
     padding: 10px 20px;
-    background-color: #EA4335; 
+    background-color: black; 
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     z-index: 10;
-    
 }
 
 .logout-button:hover {
@@ -30,24 +18,25 @@
 }
 
 h1 {
-    margin: 10px 0;
-    color: #4285F4;
+    margin: 10px;
+    color: black;
     font-weight: 600;
     font-size: 50px;
 }
 
 df-messenger {
-    height: 100vh;
     z-index: 999;
     position: fixed;
-    right: 0;
-    bottom: 0;
     --df-messenger-font-color: #000;
-    --df-messenger-font-family: 'Google Sans';
+    --df-messenger-font-family: 'Google Sans', sans-serif;
     --df-messenger-chat-background: #f3f6fc;
     --df-messenger-message-user-background: #d3e3fd;
     --df-messenger-message-bot-background: #fff;
-}
+    bottom: 16px;
+    right: 16px;
+  }
+  
+
 
 
 .calendar-header {
@@ -56,15 +45,32 @@ df-messenger {
     justify-content: space-between;
     align-items: center;
     padding-bottom: 10px;
+    background-color: white;
+    height: 25px;
+    width: 250px;
+    border-radius: 10px;
 }
 
 .month-picker {
-    cursor: pointer;
-    color: #357ABD;
-    font-weight: bold;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    background-color: #f0f0f0; 
+    color: #333; 
+    border-radius: 50%; 
+    cursor: pointer; 
+    margin: 0 10px; 
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
+    user-select: none;
+    transform: translateY(4px);
+    
 }
-
-
+.chart0{
+    width: 250px;
+    border-radius: 20px;
+}
 .event-dot {
     display: inline-block;
     height: 5px;
@@ -94,7 +100,7 @@ df-messenger {
 
 
 .current-day {
-    background-color: #4285F4;
+    background-color: #0857D0;
     color: white;
     border-radius: 20%;
 }
@@ -131,7 +137,7 @@ df-messenger {
     object-fit: cover;
 }
 
-.login-card, .picture-card {
+.card2{
     flex: 0 0 250px; 
     height: 420px;
     background-color: #f3f6fc;
@@ -140,23 +146,100 @@ df-messenger {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
     overflow: auto;
+    transform: translateY(-80px);
+
 }
 
-.container {
+.card6{
+    flex: 0 0 320px; 
+    height: 550px;
+    background-color: #f3f6fc;
+    padding: 20px;  
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    overflow: auto;
+    transform: translateY(-29px);
+
+}
+
+.card2:hover{
+    background-color: #9bbdf3;
+    color: white;
+}
+
+.card6:hover{
+    background-color: #9bbdf3;
+    color: white;
+}
+
+.card3{
+    flex: 0 0 250px; 
+    height: 420px;
+    background-color: #f3f6fc;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    overflow: auto;
+    transform: translateY(-80px);
+
+}
+.card3:hover{
+    background-color: #9bbdf3;
+}
+
+.card4{
+    flex: 0 0 940px; 
+    height: 490px;
+    background-color: #f3f6fc;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    overflow: auto;
+    transform: translateY(40px);
+
+}
+.card4:hover{
+    background-color: #9bbdf3;
+}
+
+.drawio{
+    width: 900px;
+}
+.container1 {
     display: flex;
     align-items: center;
     justify-content: center; 
     min-height: 100vh;
-    padding: 20px;
+    /* padding: 20px; */
     flex-wrap: nowrap; 
     gap: 20px; 
+    /* transform: translateY(-20px); */
+}
+
+.container2 {
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    min-height: 100vh;
+    /* padding: 20px; */
+    flex-wrap: nowrap; 
+    gap: 20px; 
+    transform: translateY(-100px);
 }
 
 .promptile{
     background-color: #768484;
     color: white;
-    height: 25px;
+    height: 45px;
     border-radius: 5px;
+    cursor: pointer;
+    margin: 15px;
+    display: flex;         
+    justify-content: center;
+    align-items: center; 
 }
 
 .rec{
@@ -164,11 +247,37 @@ df-messenger {
     margin: 5px 0px;
 }
 
-.functile{
+.functile {
     background-color: #768484;
     color: white;
-    height: 25px;
+    height: 45px;
     border-radius: 5px;
     cursor: pointer;
     margin: 15px;
+    display: flex;         
+    justify-content: center;
+    align-items: center;    
+}
+
+.reporttile {
+    background-color: white;
+    color: black;
+    height: 45px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 15px;
+    display: flex;         
+    justify-content: center;
+    align-items: center; 
+    width: 50%; 
+}
+
+.plus{
+    width: 30px;
+    transform: translateX(18px);
+}
+
+.plus0{
+    width: 30px;
+    transform: translateX(30px);
 }

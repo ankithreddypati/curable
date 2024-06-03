@@ -1,0 +1,14 @@
+{
+  "name": "56ccd757-daf4-490f-92d3-53dc3a666074",
+  "displayName": "Symptom Logger",
+  "description": "Creates a log of symptom with userid , symptom description and severity",
+  "openApiSpec": {
+    "authentication": {
+      "serviceAgentAuthConfig": {
+        "serviceAgentAuth": "ID_TOKEN"
+      }
+    }
+  },
+  "schemas": [ "SymptomData" ],
+  "toolType": "CUSTOMIZED_TOOL"
+}
